@@ -3,7 +3,7 @@ module String::Builder
     def build(obj = String.new)
       if block_given?
         yield builder = self.new
-        obj.to_s << builder
+        obj.dup.to_s << builder
       else
         obj.to_s
       end

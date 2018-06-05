@@ -35,6 +35,14 @@ describe String::Builder do
         end
 
       end
+
+      it "should not mutate a variable" do
+        result = ?a
+        v = String.build result
+        v = ?b
+        expect(result).to eq(?a)
+      end
+
     end
 
     context 'with only block argument given' do
@@ -98,6 +106,15 @@ describe String::Builder do
             s = ''
           end
           expect(result).to eq('cAb')
+        end
+
+        it "should not mutate a variable" do
+          result = ?a
+          String.build result do |s|
+            s << ?b
+            s.gsub!(?b,?c)
+          end
+          expect(result).to eq(?a)
         end
 
       end
