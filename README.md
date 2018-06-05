@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/eonu/string_builder.svg?branch=master)](https://travis-ci.org/eonu/string_builder)
-<a href="https://rubygems.org/gems/string_builder">[![Gem](https://img.shields.io/gem/v/string_builder.svg)]</a>
-[![License](https://img.shields.io/github/license/eonu/string_builder.svg)](https://github.com/eonu/string_builder/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/eonu/string-builder.svg?branch=master)](https://travis-ci.org/eonu/string-builder)
+[![Gem](https://img.shields.io/gem/v/string_builder.svg)]
+[![License](https://img.shields.io/github/license/eonu/string-builder.svg)](https://github.com/eonu/string-builder/blob/master/LICENSE)
 
 # String::Builder
 

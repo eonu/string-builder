@@ -1,3 +1,4 @@
+require_relative 'spec_helper'
 describe String::Builder do
   describe 'without refinement usage' do
 
