@@ -69,6 +69,8 @@ This example shows how to make a simple logger by constructing log messages with
 > - Since the block `yield`s a `String` object, `String::Builder` allows you to mutate the string itself as seen in this example with the `String#gsub!` method.
 
 ```ruby
+require 'string/builder'
+
 class Logger
   using String::Builder
   %i[error success info warning].each do |severity|
