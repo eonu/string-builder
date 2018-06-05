@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/eonu/string-builder.svg?branch=master)](https://travis-ci.org/eonu/string-builder)
-[![Gem](https://img.shields.io/gem/v/string_builder.svg)]
+![Gem](https://img.shields.io/gem/v/string_builder.svg)
 [![License](https://img.shields.io/github/license/eonu/string-builder.svg)](https://github.com/eonu/string-builder/blob/master/LICENSE)
 
 # String::Builder
