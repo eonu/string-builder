@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/eonu/string_builder.svg?branch=master)](https://travis-ci.org/eonu/string_builder)
+<a href="https://rubygems.org/gems/string_builder">[![Gem](https://img.shields.io/gem/v/string_builder.svg)]</a>
+[![License](https://img.shields.io/github/license/eonu/string_builder.svg)](https://github.com/eonu/string_builder/blob/master/LICENSE)
+
 # String::Builder
 
 Modified port of the [String::Builder IO initializer](https://crystal-lang.org/api/0.20.3/String/Builder.html#build%28capacity%3AInt%3D64%2C%26block%29%3AString-class-method) for the String class of the Crystal programming language.
