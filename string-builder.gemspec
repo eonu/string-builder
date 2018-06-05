@@ -2,8 +2,8 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "string_builder"
-  spec.version       = "1.2.0"
+  spec.name          = "string-builder"
+  spec.version       = "2.0.1"
   spec.authors       = ["Edwin Onuonga"]
   spec.email         = ["edwinonuonga@gmail.com"]
 

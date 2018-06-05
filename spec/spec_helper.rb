@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "string_builder"
+require "string-builder"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|

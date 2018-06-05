@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/eonu/string-builder.svg?branch=master)](https://travis-ci.org/eonu/string-builder)
-![Gem](https://img.shields.io/gem/v/string_builder.svg)
+![Gem](https://img.shields.io/gem/v/string-builder.svg)
 [![License](https://img.shields.io/github/license/eonu/string-builder.svg)](https://github.com/eonu/string-builder/blob/master/LICENSE)
 
 # String::Builder
@@ -85,16 +85,16 @@ end
 logger = Logger.new
 
 logger.error 'String::Builder is good?'
-#=> [03:54:53s] (lib/string_builder.rb) ERROR » String::Builder is good!
+#=> [03:54:53s] (lib/string-builder.rb) ERROR » String::Builder is good!
 
 logger.success 'String::Builder is good?'
-#=> [03:54:55s] (lib/string_builder.rb) SUCCESS » String::Builder is good!
+#=> [03:54:55s] (lib/string-builder.rb) SUCCESS » String::Builder is good!
 
 logger.info 'String::Builder is good?'
-#=> [03:54:57s] (lib/string_builder.rb) INFO » String::Builder is good!
+#=> [03:54:57s] (lib/string-builder.rb) INFO » String::Builder is good!
 
 logger.warning 'String::Builder is good?'
-#=> [03:54:59s] (lib/string_builder.rb) WARNING » String::Builder is good!
+#=> [03:54:59s] (lib/string-builder.rb) WARNING » String::Builder is good!
 ```
 
 ## Installation
@@ -102,7 +102,7 @@ logger.warning 'String::Builder is good?'
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'string_builder'
+gem 'string-builder'
 ```
 
 And then execute:
@@ -111,19 +111,22 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install string_builder
+    $ gem install string-builder
 
 ## Usage
 
 This monkey-patch is in the form of a `refinement`. This means that you will have to call the following `using` directive within the scope that you want the `String.build` class method to be monkey-patched into the `String` class:
 
 ```ruby
+require 'string/builder'
 using String::Builder
 ```
 
 Though you should typically avoid doing this in the global scope (unless you really need to), and instead only use the monkey-patch where you need it - inside your specific modules or classes:
 
 ```ruby
+require 'string/builder'
+
 class A
   using String::Builder
   # CAN use String.build in this class
