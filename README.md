@@ -200,54 +200,6 @@ end
 # CANNOT use String::Builder methods in the global scope
 ```
 
-## Limitations of string building in Ruby and Crystal
+## Further information
 
-The [String::Builder](https://crystal-lang.org/api/0.20.3/String/Builder.html) class of the Crystal programming language provides an initializer method for the `String` class called `build` which is essentially an optimized version of Ruby's `StringIO`.
-
-Ruby's `StringIO` and Crystal's `String::Builder` are great because it essentially turns strings into IO objects, allowing you to pass a block into the constructor (yielding `self`) which leads to nice chaining such as:
-
-```ruby
-# Ruby - StringIO
-test = StringIO.open do |s|
-  s << 'Hello '
-  s << 'World!'
-  s.string
-end
-#=> "Hello World!"
-```
-
-Note the necessary `StringIO#string` method call. Since we are yielding a `StringIO` object, we must convert it to a `String` at the end. This is a bit cleaner in Crystal:
-
-```ruby
-# Crystal - String::Builder
-test = String.build do |s|
-  s << "Hello "
-  s << "World!"
-end
-#=> "Hello World!"
-```
-
----
-
-However, since **neither** of these two implementations yield a `String` object, you can't use `String` methods to mutate the object:
-
-```ruby
-# Ruby - StringIO
-test = StringIO.open do |s|
-  s << 'Hello '
-  s << 'World!'
-  s.upcase!
-  s.string
-end
-#=> ... undefined method `upcase!' for #<StringIO:0x00007fe0bc09d810> (NoMethodError)
-```
-
-```ruby
-# Crystal - String::Builder
-test = String.build do |s|
-  s << "Hello "
-  s << "World!"
-  s.gsub!("!", "?")
-end
-#=> ... undefined method 'gsub!' for String::Builder
-```
+For more information about string-building in Ruby and Crystal, [read this blog post](https://www.eonuonga.com/posts/2018/06/07/limitations-of-string-building).
