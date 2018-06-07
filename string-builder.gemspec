@@ -3,11 +3,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "string-builder"
-  spec.version       = "2.1.0"
+  spec.version       = "2.1.1"
   spec.authors       = ["Edwin Onuonga"]
   spec.email         = ["edwinonuonga@gmail.com"]
 
-  spec.summary       = %q{Modified and extended port of the String::Builder IO-style initializer from the String class of the Crystal programming language.}
+  spec.summary       = %q{Modified and extended port of the String::Builder IO-style initializer for the String class of the Crystal programming language.}
   spec.homepage      = "https://www.github.com/eonu/string-builder"
   spec.license       = "MIT"
 
