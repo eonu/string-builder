@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-describe String::Builder do
+describe "#{String::Builder} class methods" do
   describe 'without refinement usage' do
 
     it 'String.build should not exist' do
@@ -81,31 +81,37 @@ describe String::Builder do
       context 'where obj is a string' do
 
         it "mutating String instance methods should mutate the result" do
-          result = String.build ?c do |s|
-            s.gsub!('',?a)
+          result = String.build ?a do |s|
+            s.gsub!(?a,?b)
+            s << ?c
+            s.gsub!(?c,?b)
             s.upcase!
             s << ?b
           end
-          expect(result).to eq('cAb')
+          expect(result).to eq('aBb')
         end
 
         it "non-mutating String instance methods shouldn't mutate the result" do
-          result = String.build ?c do |s|
-            s.gsub('',?a)
+          result = String.build ?a do |s|
+            s.gsub(?a,?b)
+            s << ?c
+            s.gsub(?c,?b)
             s.upcase
             s.+(?b)
           end
-          expect(result).to eq(?c)
+          expect(result).to eq('ac')
         end
 
         it "block argument reassignment shouldn't mutate the result" do
-          result = String.build ?c do |s|
-            s.gsub!('',?a)
+          result = String.build ?a do |s|
+            s.gsub!(?a,?b)
+            s << ?c
+            s.gsub!(?c,?b)
             s.upcase!
             s << ?b
             s = ''
           end
-          expect(result).to eq('cAb')
+          expect(result).to eq('aBb')
         end
 
         it "should not mutate a variable" do
@@ -123,30 +129,36 @@ describe String::Builder do
 
         it "mutating String instance methods should mutate the result" do
           result = String.build 3 do |s|
-            s.gsub!('',?a)
+            s.gsub!(?3,?b)
+            s << ?c
+            s.gsub!(?c,?b)
             s.upcase!
             s << ?b
           end
-          expect(result).to eq('3Ab')
+          expect(result).to eq('3Bb')
         end
 
         it "non-mutating String instance methods shouldn't mutate the result" do
           result = String.build 3 do |s|
-            s.gsub('',?a)
+            s.gsub(?3,?b)
+            s << ?c
+            s.gsub(?c,?b)
             s.upcase
             s.+(?b)
           end
-          expect(result).to eq(?3)
+          expect(result).to eq('3c')
         end
 
         it "block argument reassignment shouldn't mutate the result" do
           result = String.build 3 do |s|
-            s.gsub!('',?a)
+            s.gsub!(?a,?b)
+            s << ?c
+            s.gsub!(?c,?b)
             s.upcase!
             s << ?b
             s = ''
           end
-          expect(result).to eq('3Ab')
+          expect(result).to eq('3Bb')
         end
 
       end
