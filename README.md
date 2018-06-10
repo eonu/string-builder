@@ -8,7 +8,7 @@ Modified and extended port of the [String::Builder](https://crystal-lang.org/api
 
 ## Methods
 
-There are three new methods in this extension of the `String` class:
+There are four new methods in this extension of the `String` class:
 
 ### Instance methods
 
