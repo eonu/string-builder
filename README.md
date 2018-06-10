@@ -4,7 +4,7 @@
 
 # String::Builder
 
-Modified and extended port of the [String::Builder](https://crystal-lang.org/api/0.20.3/String/Builder.html#build%28capacity%3AInt%3D64%2C%26block%29%3AString-class-method) IO-style initializer for the `String` class of the Crystal programming language.
+Modified and extended port of the [String::Builder](https://crystal-lang.org/api/0.20.3/String/Builder.html#build%28capacity%3AInt%3D64%2C%26block%29%3AString-class-method) IO-style initializer for the `String` class of the Crystal programming language in the form of a Ruby gem refinement module.
 
 ## Methods
 
@@ -68,6 +68,16 @@ If no block is given, then the object converted to a string (with `to_s`) is ret
 ##### Examples
 
 ```ruby
+foobar = String.build do |s|
+  s << 'fii'
+  s.gsub!('ii','oo')
+  s << 'bar'
+end
+
+foobar #=> "foobar"
+```
+
+```ruby
 foobar = String.build 'foo' do |s|
   s << 'bop'
   s.gsub!('op','ar')
@@ -95,6 +105,20 @@ end
 
 foobar #=> "foobar"
 foo #=> "foo"
+```
+
+#### `String.[]`
+
+Takes arbitrarily many objects (with splat), converts them to strings and contatenates them (takes the product with the empty string).
+
+##### Examples
+
+```ruby
+String[]                       #=> ""
+String[3]                      #=> "3"
+String['Hello','World','!']    #=> "HelloWorld!"
+String[{k: 'v'}, 3, %i[a b c]] #=> "{:k=>\"v\"}3[:a, :b, :c]"
+String[*['a', 2, :z]]          #=> "a2z"
 ```
 
 ## Detailed example

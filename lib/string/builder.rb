@@ -1,6 +1,8 @@
 module String::Builder
   refine String.singleton_class do
 
+    def [](*args) args.map(&:to_s)*self.new end
+
     def build(obj = String.new)
       return obj.to_s unless block_given?
       yield builder = self.new
@@ -8,7 +10,7 @@ module String::Builder
     end
 
     def respond_to?(id, private = false)
-      id.to_sym == :build ? true : super
+      %i[[] build].include?(id.to_sym) ? true : super
     end
 
   end
