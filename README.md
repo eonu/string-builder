@@ -4,7 +4,7 @@
 
 # String::Builder
 
-Modified and extended port of the [String::Builder](https://crystal-lang.org/api/0.20.3/String/Builder.html#build%28capacity%3AInt%3D64%2C%26block%29%3AString-class-method) IO-style initializer for the `String` class of the Crystal programming language in the form of a Ruby gem refinement module.
+Refinement of the core String class, extending it with class and instance methods for streamlined string construction.
 
 ## Methods
 
