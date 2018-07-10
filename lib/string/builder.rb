@@ -4,7 +4,6 @@ module String::Builder
     def [](*objs) objs.map(&:to_s)*self.new end
 
     def build(*objs)
-      objs << String.new if objs.empty?
       content = self.[](*objs)
       return content unless block_given?
       yield builder = self.new
@@ -18,7 +17,6 @@ module String::Builder
 
   refine String do
     def build(*objs)
-      objs << String.new if objs.empty?
       content = String[*objs]
       return self.dup << content unless block_given?
       yield builder = String.new
@@ -26,7 +24,6 @@ module String::Builder
     end
 
     def build!(*objs)
-      objs << String.new if objs.empty?
       content = String[*objs]
       return self << content unless block_given?
       yield builder = String.new
